@@ -1,3 +1,4 @@
+//РїСЂРѕРІРµСЂСЏРµС‚ СЃРѕР±СЂР°РЅР° Р»Рё РєР°СЂС‚Р°
 using UnityEngine;
 
 public class CheckMapAssembling : MonoBehaviour
@@ -9,25 +10,25 @@ public class CheckMapAssembling : MonoBehaviour
     public int _rightSquaresCount = 0, _rightPiecesAmount = 28;
     private bool _isAnimationPlayed = false;
 
-    private void Update() //метод Update вызывается каждый кадр, что примерно 60 раз в секунду
+    private void Update() //Г¬ГҐГІГ®Г¤ Update ГўГ»Г§Г»ГўГ ГҐГІГ±Гї ГЄГ Г¦Г¤Г»Г© ГЄГ Г¤Г°, Г·ГІГ® ГЇГ°ГЁГ¬ГҐГ°Г­Г® 60 Г°Г Г§ Гў Г±ГҐГЄГіГ­Г¤Гі
     {
-        if (_rightSquaresCount == _rightPiecesAmount & !_isAnimationPlayed) //если число совпадающих пазлов
-            LaunchCompletingAnimation(); //равно числу ячеек, то запускаем победную анимацию
+        if (_rightSquaresCount == _rightPiecesAmount & !_isAnimationPlayed) //ГҐГ±Г«ГЁ Г·ГЁГ±Г«Г® Г±Г®ГўГЇГ Г¤Г ГѕГ№ГЁГµ ГЇГ Г§Г«Г®Гў
+            LaunchCompletingAnimation(); //Г°Г ГўГ­Г® Г·ГЁГ±Г«Гі ГїГ·ГҐГҐГЄ, ГІГ® Г§Г ГЇГіГ±ГЄГ ГҐГ¬ ГЇГ®ГЎГҐГ¤Г­ГіГѕ Г Г­ГЁГ¬Г Г¶ГЁГѕ
         else
-            CheckEquals(); //иначе продолжаем сверять кол-во нужных пазлов с кол-вом ячеек
+            CheckEquals(); //ГЁГ­Г Г·ГҐ ГЇГ°Г®Г¤Г®Г«Г¦Г ГҐГ¬ Г±ГўГҐГ°ГїГІГј ГЄГ®Г«-ГўГ® Г­ГіГ¦Г­Г»Гµ ГЇГ Г§Г«Г®Гў Г± ГЄГ®Г«-ГўГ®Г¬ ГїГ·ГҐГҐГЄ
     }
 
-    private void CheckEquals() //в этом методе проверяется кол-во правильно стоящих пазлов
+    private void CheckEquals() //Гў ГЅГІГ®Г¬ Г¬ГҐГІГ®Г¤ГҐ ГЇГ°Г®ГўГҐГ°ГїГҐГІГ±Гї ГЄГ®Г«-ГўГ® ГЇГ°Г ГўГЁГ«ГјГ­Г® Г±ГІГ®ГїГ№ГЁГµ ГЇГ Г§Г«Г®Гў
     {
         _rightSquaresCount = 0;
-        for (int i = 0; i < gameObject.transform.childCount; i++) //этот цикл проходится по всем объектам пазлов
+        for (int i = 0; i < gameObject.transform.childCount; i++) //ГЅГІГ®ГІ Г¶ГЁГЄГ« ГЇГ°Г®ГµГ®Г¤ГЁГІГ±Гї ГЇГ® ГўГ±ГҐГ¬ Г®ГЎГєГҐГЄГІГ Г¬ ГЇГ Г§Г«Г®Гў
         {
             if (gameObject.transform.GetChild(i).GetComponent<PuzzleCellLogic>()._isRightPiece == true)
-                _rightSquaresCount += 1; //и проверяет, что если номер ячейки совпадает с номером пазла, то
-            //увеличиваем кол-во правильно стоящих пазлов
+                _rightSquaresCount += 1; //ГЁ ГЇГ°Г®ГўГҐГ°ГїГҐГІ, Г·ГІГ® ГҐГ±Г«ГЁ Г­Г®Г¬ГҐГ° ГїГ·ГҐГ©ГЄГЁ Г±Г®ГўГЇГ Г¤Г ГҐГІ Г± Г­Г®Г¬ГҐГ°Г®Г¬ ГЇГ Г§Г«Г , ГІГ®
+            //ГіГўГҐГ«ГЁГ·ГЁГўГ ГҐГ¬ ГЄГ®Г«-ГўГ® ГЇГ°Г ГўГЁГ«ГјГ­Г® Г±ГІГ®ГїГ№ГЁГµ ГЇГ Г§Г«Г®Гў
         }
     }
-    private void LaunchCompletingAnimation() //этот метод запускает победную анимацию
+    private void LaunchCompletingAnimation() //ГЅГІГ®ГІ Г¬ГҐГІГ®Г¤ Г§Г ГЇГіГ±ГЄГ ГҐГІ ГЇГ®ГЎГҐГ¤Г­ГіГѕ Г Г­ГЁГ¬Г Г¶ГЁГѕ
     {
         _UIButtons.SetActive(false);
         _darkBG.SetActive(true);
