@@ -1,3 +1,4 @@
+//отвечает за логику нажатия кнопок
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
